@@ -49,4 +49,4 @@ mutation deletePost($id: number){
     }
 }
 `
-
+export { GET_POSTS, ADD_POST, DELETE_POST }

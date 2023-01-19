@@ -11,8 +11,6 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
 import { HttpLink } from 'apollo-angular/http'
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { GraphQLModule } from './graphql.module'
-import { HomeComponent } from './pages/home/home.component';
-import { TodosComponent } from './pages/todos/todos.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const auth = setContext((headers) => {
@@ -26,9 +24,7 @@ const auth = setContext((headers) => {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    TodosComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
