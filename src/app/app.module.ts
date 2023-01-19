@@ -12,6 +12,7 @@ import { HttpLink } from 'apollo-angular/http'
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { GraphQLModule } from './graphql.module'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserComponent } from './components/user/user.component';
 
 const auth = setContext((headers) => {
   return {
@@ -25,6 +26,7 @@ const auth = setContext((headers) => {
   declarations: [
     AppComponent,
     DashboardComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

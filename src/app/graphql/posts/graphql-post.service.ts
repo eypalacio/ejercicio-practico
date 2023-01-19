@@ -39,7 +39,7 @@ export class PostService {
      * 
      * @param id 
      */
-    delete_post(id: number) {
+    del_post(id: number) {
         this.post.mutate<graphql_post_response>({
             mutation: DELETE_POST,
             variables: {

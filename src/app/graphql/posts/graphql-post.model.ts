@@ -13,6 +13,6 @@ export interface graphql_post_response {
     }
 }
 
-export interface graphql_post_response_by_user_id {
+export interface graphql_post_by_user_id_response {
     post: graphql_post
 }
