@@ -32,16 +32,19 @@ export class PostService {
                 title: title,
                 body: body,
             }
-        }).pipe(map((m)=> m.data?.posts))
+        }).pipe(map((m) => m.data?.posts))
     }
 
-
-    del_post(id: number){
+    /**
+     * 
+     * @param id 
+     */
+    delete_post(id: number) {
         this.post.mutate<graphql_post_response>({
             mutation: DELETE_POST,
             variables: {
                 id: id,
             }
-        }).pipe(map((m)=> m.data?.posts))
+        }).pipe(map((m) => m.data?.posts))
     }
 }
