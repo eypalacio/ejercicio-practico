@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
       this.usuarios = result
     })
 
+    // this.user.create_user('dddsa', 'hajs@gmail.com', 'male','active').subscribe(result=>{
+    //   console.log(result);
+      
+    // })
 
     // this.api.getUserById(3494).subscribe(result=>{
     //   console.log(result);

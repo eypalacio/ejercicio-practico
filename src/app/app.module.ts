@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { setContext } from '@apollo/client/link/context'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,8 @@ import { GraphQLModule } from './graphql.module'
 import { HomeComponent } from './pages/home/home.component';
 import { TodosComponent } from './pages/todos/todos.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { AuthorPipe } from './pipes/author/author.pipe';
 
 const auth = setContext((headers) => {
   return {
@@ -28,11 +31,15 @@ const auth = setContext((headers) => {
     AppComponent,
     HomeComponent,
     TodosComponent,
-    DashboardComponent
+    DashboardComponent,
+    PostsComponent,
+    AuthorPipe
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     GraphQLModule,
     HttpClientModule,

@@ -26,7 +26,25 @@ query get_user_by_id($id: ID!){
     }
 }
 `
-// const GET_CANT_POST_USER = gql``
+const CREATE_USER = gql`
+mutation createUser($name: String!, $email: String!, $gender: String!, $status: String!){
+    createUser(
+        input: {
+            name: $name
+            email: $email
+            gender: $gender
+            status: $status
+        }
+    ){
+        user{
+            id
+            name
+            email
+            gender
+            status
+        }
+    }
+}
+`
 
-
-export { GET_USERS, GET_USER_BY_ID}
+export { GET_USERS, GET_USER_BY_ID, CREATE_USER }

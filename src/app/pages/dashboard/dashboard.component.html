@@ -6,7 +6,7 @@
         <div
             class="bg-transparent flex-initial w-20 h-full justify-center flex flex-col text-teal-600 gap-4 items-center">
             <!-- home buttom-->
-            <button class="w-12 hover:bg-teal-600 hover:text-white rounded-lg p-2   ">
+            <button class="w-12 hover:bg-teal-600 hover:text-white rounded-lg p-2" [routerLink]="'/home'">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                     stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round"
@@ -15,7 +15,7 @@
             </button>
 
             <!-- user buttom-->
-            <button class="w-8">
+            <button class="w-12 hover:bg-teal-600 hover:text-white rounded-lg p-2" [routerLink]="'/users'">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                     stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round"
@@ -23,10 +23,12 @@
                 </svg>
             </button>
 
-            <!-- post buttom--><button class="w-8">posts</button> 
+            <!-- post buttom-->
+            <button class="w-12 hover:bg-teal-600 hover:text-white rounded-lg p-2"
+                [routerLink]="'/posts'">posts</button>
 
             <!-- comments buttom-->
-            <button class="w-8 text-center">
+            <button class="w-12 hover:bg-teal-600 hover:text-white rounded-lg p-2" [routerLink]="'/todos'">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                     stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round"
@@ -37,8 +39,12 @@
         <!-- menu -->
 
         <!-- management area -->
-        <div class="bg-slate-50 flex-1 w-96 rounded-xl h-full">
-            <h1 class="font-medium leading-tight text-5xl mt-5 mb-2 ml-10 w-full text-teal-600">Welcome</h1>
+        <div class="bg-slate-50 flex-1 w-96 rounded-xl h-full flex flex-col">
+            <h1 class="flex-none font-medium leading-tight text-5xl mt-5 mb-2 ml-10 w-full text-teal-600">Welcome</h1>
+
+            <div class="flex-1w-full h-32">
+                <router-outlet></router-outlet>
+            </div>
         </div>
         <!-- management area -->
     </div>

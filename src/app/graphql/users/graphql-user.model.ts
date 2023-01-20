@@ -18,3 +18,7 @@ export interface graphql_user_response_by_id {
     user: graphql_user;
 }
 
+export interface graphql_user_node {
+    node: graphql_user;
+}
+

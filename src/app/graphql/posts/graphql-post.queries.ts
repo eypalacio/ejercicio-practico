@@ -6,15 +6,47 @@ query{
         edges{
             node{
                 id
-                user_id
                 title
                 body
+                user{
+                    id
+                    name
+                    email
+                }
             }
         }
     }
 }
 `
-const ADD_POST = gql`
+const GET_POST_BY_ID = gql`
+query get_post_by_id($id: ID!){
+    post(id: $id) {
+        title
+        body
+        user{
+            id
+            name
+            email
+        }
+    }
+}
+`
+
+const GET_POST_BY_USER_ID = gql`
+query get_post_by_user_id($userId: number!){
+    post(userId: $userId) {
+        title
+        body
+        user{
+            id
+            name
+            email
+        }
+    }
+}
+`
+
+const CREATE_POST = gql`
 mutation createPost($title: String!, $body: String!, $userId: number!){
     createPost(
         input: {
@@ -49,4 +81,5 @@ mutation deletePost($id: number){
     }
 }
 `
+export { GET_POSTS, CREATE_POST, DELETE_POST, GET_POST_BY_ID, GET_POST_BY_USER_ID }
 
