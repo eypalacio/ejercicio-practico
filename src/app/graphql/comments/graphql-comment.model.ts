@@ -1,6 +1,6 @@
 export interface graphql_comments {
     id: number;
-    post_id: number;
+    postId: number;
     name: string;
     email: string;
     body: string;

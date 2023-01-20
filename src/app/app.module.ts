@@ -13,9 +13,11 @@ import { HttpLink } from 'apollo-angular/http'
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { GraphQLModule } from './graphql.module'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { PostsComponent } from './pages/posts/posts.component';
+import { PostsComponent } from './components/posts/posts.component';
 import { AuthorPipe } from './pipes/author/author.pipe';
 import { UserComponent } from './components/user/user.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { FormPostComponent } from './components/form-post/form-post.component';
 
 const auth = setContext((headers) => {
   return {
@@ -32,6 +34,8 @@ const auth = setContext((headers) => {
     PostsComponent,
     AuthorPipe,
     UserComponent,
+    CommentsComponent,
+    FormPostComponent,
   ],
   imports: [
     BrowserModule,

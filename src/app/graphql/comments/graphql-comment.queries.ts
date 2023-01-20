@@ -6,7 +6,7 @@ query{
         edges{
             node{
                 id
-                post_id
+                postId
                 name
                 email
                 body
@@ -24,7 +24,7 @@ mutation deleteComment($id: number){
     ){
         comment{
             id
-            post_id
+            postId
             name
             email
             body
