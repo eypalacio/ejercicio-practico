@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { GET_USERS } from 'src/app/graphql/graphql.queries';
+import { UserService } from 'src/app/graphql/users/graphql-user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,15 +10,13 @@ import { GET_USERS } from 'src/app/graphql/graphql.queries';
 })
 export class DashboardComponent {
 
-  constructor(private apollo: Apollo) { }
+  usuarios: any[]= []
+
+  constructor(private apollo: UserService) { }
   
   ngOnInit(): void {
-    // this.apollo.watchQuery({
-    //   query: GET_USERS
-    // }).valueChanges.subscribe(({data, error}: any) =>{
-    //   console.log(data.users);
-    //   console.log(data);
-
-    // })
+    this.apollo.get_all_users().subscribe(result =>{
+      this.usuarios = result;
+    })
   }
 }

@@ -12,11 +12,10 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
 import { HttpLink } from 'apollo-angular/http'
 import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { GraphQLModule } from './graphql.module'
-import { HomeComponent } from './pages/home/home.component';
-import { TodosComponent } from './pages/todos/todos.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { AuthorPipe } from './pipes/author/author.pipe';
+import { UserComponent } from './components/user/user.component';
 
 const auth = setContext((headers) => {
   return {
@@ -29,11 +28,10 @@ const auth = setContext((headers) => {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    TodosComponent,
     DashboardComponent,
     PostsComponent,
-    AuthorPipe
+    AuthorPipe,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
