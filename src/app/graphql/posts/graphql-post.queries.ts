@@ -3,18 +3,22 @@ import { gql } from "apollo-angular";
 const GET_POSTS = gql`
 query{
     posts{
-        edges{
-            node{
+            nodes{
                 id
                 title
                 body
                 user{
-                    id
                     name
-                    email
+                }
+                comments{
+                    nodes{
+                        name
+                        body
+                        email
+                        id
+                    }
                 }
             }
-        }
     }
 }
 `
@@ -32,22 +36,8 @@ query get_post_by_id($id: ID!){
 }
 `
 
-const GET_POST_BY_USER_ID = gql`
-query get_post_by_user_id($userId: number!){
-    post(userId: $userId) {
-        title
-        body
-        user{
-            id
-            name
-            email
-        }
-    }
-}
-`
-
 const CREATE_POST = gql`
-mutation createPost($title: String!, $body: String!, $userId: number!){
+mutation createPost($title: String!, $body: String!, $userId: Int!){
     createPost(
         input: {
             title: $title
@@ -81,5 +71,6 @@ mutation deletePost($id: number){
     }
 }
 `
-export { GET_POSTS, CREATE_POST, DELETE_POST, GET_POST_BY_ID, GET_POST_BY_USER_ID }
+
+export { GET_POSTS, CREATE_POST, DELETE_POST, GET_POST_BY_ID }
 

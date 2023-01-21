@@ -3,13 +3,14 @@ import { gql } from "apollo-angular";
 const GET_USERS = gql`
 query{
     users{
-        edges{
-            node{
-                id
-                name
-                email
-                gender
-                status
+        nodes{
+            id
+            name
+            gender
+            status
+            email
+            posts{
+                totalCount
             }
         }
     }

@@ -8,10 +8,6 @@ export interface graphql_comments {
 
 export interface graphql_comments_response {
     comments: {
-        edges: []
+        nodes: []
     }
-}
-
-export interface graphql_comments_node{
-    node: graphql_comments
 }

@@ -3,17 +3,16 @@ import { gql } from "apollo-angular";
 const GET_COMMENTS = gql`
 query{
     comments{
-        edges{
-            node{
+            nodes{
                 id
                 postId
                 name
                 email
                 body
             }
-        }
     }
 }`
+
 
 const DELETE_COMMENT = gql`
 mutation deleteComment($id: number){

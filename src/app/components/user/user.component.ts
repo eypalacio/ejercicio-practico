@@ -8,13 +8,15 @@ import { UserService } from 'src/app/graphql/users/graphql-user.service';
 })
 export class UserComponent implements OnInit {
 
-  usuarios: any[] = []
+  user_list: any[] = []
   
-  constructor(private apollo: UserService) { }
+  constructor(private user_service: UserService) { }
 
   ngOnInit(): void {
-    this.apollo.get_all_users().subscribe(result =>{
-      this.usuarios = result;
+    this.user_service.get_all_users().subscribe(result =>{
+      this.user_list = result;
+      console.log(result);
+      
     })
   }
 

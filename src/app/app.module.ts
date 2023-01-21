@@ -18,6 +18,8 @@ import { AuthorPipe } from './pipes/author/author.pipe';
 import { UserComponent } from './components/user/user.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FormPostComponent } from './components/form-post/form-post.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { CommonModule } from '@angular/common';
 
 const auth = setContext((headers) => {
   return {
@@ -36,9 +38,11 @@ const auth = setContext((headers) => {
     UserComponent,
     CommentsComponent,
     FormPostComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,

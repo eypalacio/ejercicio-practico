@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Apollo } from "apollo-angular";
 import { map, Observable } from "rxjs";
-import { graphql_user, graphql_users_response, graphql_user_node, graphql_user_response_by_id } from "./graphql-user.model";
+import { graphql_user, graphql_users_response, graphql_user_response_by_id } from "./graphql-user.model";
 import { CREATE_USER, GET_USERS, GET_USER_BY_ID } from "./graphql-user.queries";
 
 @Injectable({
@@ -15,9 +15,9 @@ export class UserService {
      * @params no requiere
      * @returns Retorna todos los usuarios del sistema con sus datos
      */
-    get_all_users(): Observable<graphql_user_node[]> {
+    get_all_users(): Observable<graphql_user[]> {
         return this.apollo.query<graphql_users_response>({ query: GET_USERS })
-            .pipe(map((m)=> m.data.users.edges));
+            .pipe(map((m)=> m.data.users.nodes));
     }
 
     /**

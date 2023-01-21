@@ -1,24 +1,24 @@
+
 //datos del usuario
 export interface graphql_user {
     id: number;
     name: string;
     email: string;
     gender: string;
-    status: string
+    status: string;
+    posts: {
+        totalCount: number
+    }
 }
 
 //response formato de la query
 export interface graphql_users_response {
     users: {
-        edges: [];
+        nodes: [];
     }
 }
 
 export interface graphql_user_response_by_id {
     user: graphql_user;
-}
-
-export interface graphql_user_node {
-    node: graphql_user;
 }
 

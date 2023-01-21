@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Apollo } from "apollo-angular";
 import { map, Observable } from "rxjs";
-import { graphql_comments, graphql_comments_node, graphql_comments_response } from "./graphql-comment.model";
+import { graphql_comments, graphql_comments_response } from "./graphql-comment.model";
 import { DELETE_COMMENT, GET_COMMENTS } from "./graphql-comment.queries";
 
 @Injectable({
@@ -10,22 +10,22 @@ import { DELETE_COMMENT, GET_COMMENTS } from "./graphql-comment.queries";
 
 export class CommentsService {
 
-    constructor(private comment: Apollo) { }
+    constructor(private apollo: Apollo) { }
 
     /**
      * 
      * @returns 
      */
-    get_all_comments(): Observable<graphql_comments_node[]>{
-        return  this.comment.query<graphql_comments_response>({ query: GET_COMMENTS}).pipe(map((m) => m.data.comments.edges))
+    get_all_comments(): Observable<graphql_comments[]> {
+        return this.apollo.query<graphql_comments_response>({ query: GET_COMMENTS }).pipe(map((m) => m.data.comments.nodes))
     }
 
     /**
      * 
      * @param id 
      */
-    delete_post(id: number) {
-        this.comment.mutate<graphql_comments_response>({
+    delete_comments(id: number) {
+        this.apollo.mutate<graphql_comments_response>({
             mutation: DELETE_COMMENT,
             variables: {
                 id: id,
