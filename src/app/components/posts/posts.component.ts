@@ -23,19 +23,27 @@ export class PostsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.load_posts()
+    this.load_posts();
+    // this.user_posts();
   }
 
   load_posts() {
     this.post_service.get_all_posts().subscribe(result => {
       console.log(result);
-
       this.post_list = result.map((m) => m);
     });
   }
 
   get_comments(commnents: graphql_comments[]) {
     this.post_comment_service.send_comments(commnents);
+  }
+
+  user_posts(){
+    this.post_comment_service.post_emitter.subscribe(result => {
+      console.log(result);
+      
+      this.post_list = result;
+    })
   }
 
 }

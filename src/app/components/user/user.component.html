@@ -1,21 +1,39 @@
-<table class="table-fixed w-full h-96 overflow-auto">
-    <thead class="border-b">
-        <tr>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">name</th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">email</th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">gender</th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">status</th>
-            <th scope="col" class="text-sm w-24 font-medium text-gray-900 px-6 py-4 text-left">Posts</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="border-b" *ngFor="let item of user_list">
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.name}}</td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate">{{item.email}}</td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.gender}}</td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.status}}</td>
-            <td class="text-sm w-24 text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
-                {{item.posts.totalCount}}</td>
-        </tr>
-    </tbody>
-</table>
+<div class="w-full h-full overflow-auto">
+    <table class="table-fixed w-full">
+        <thead class="border-b sticky top-0 bg-transparent z-10">
+            <tr>
+                <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left rounded-tl-lg">name</th>
+                <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left">email</th>
+                <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left">gender</th>
+                <th scope="col" class="bg-teal-600 text-sm w-24 font-medium text-white px-6 py-4 text-left">status</th>
+                <th scope="col" class="bg-teal-600 text-sm w-40 font-medium text-white px-6 py-4 text-left rounded-tr-lg">Posts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b" *ngFor="let item of user_list">
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.name}}</td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate">{{item.email}}</td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.gender}}</td>
+                <td class="text-sm w-24 text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.status}}</td>
+                <td class="text-sm w-40 text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
+                    <button
+                        class="text-white w-fit p-2 flex justify-center items-center rounded-lg bg-teal-600 relative" (click)="ver_posts(item)">
+                        ver posts
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                            stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                        <div
+                            class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-amber-400  border-white rounded-md shadow-md -top-3 -right-4 ">
+                            {{item.posts.totalCount}}</div>
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="user_list.length == 0">
+                <td colspan="5">
+                    <img class="w-full h-96 pt-8" src="assets/imgs/undraw_people.svg" alt="">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

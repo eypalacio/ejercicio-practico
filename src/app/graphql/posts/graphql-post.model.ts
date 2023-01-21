@@ -8,6 +8,7 @@ export interface graphql_post {
     body: string;
     comments: {
         nodes: graphql_comments
+        totalCount: number
     }
 }
 

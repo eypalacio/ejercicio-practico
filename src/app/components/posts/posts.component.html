@@ -1,5 +1,4 @@
-<div class="container w-full flex flex-col px-2">
-    <!-- search posts by author -->
+<!-- <div class="container w-full flex flex-col px-2">
     <div class="columns-1 flex-none h-20">
         <div class="w-3/6 relative">
             <input type="text" id="filtro_autor"
@@ -17,7 +16,7 @@
         </div>
     </div>
 
-    <!-- button new post -->
+    
     <div class="flex mb-2 gap-4">
         <div class="flex flex-1 justify-between">
             <p class="text-teal-700 text-md font-bold py-2 px-4">posts</p>
@@ -32,9 +31,8 @@
         <p class="text-teal-700 text-md font-bold py-2 px-4 flex-1">comments</p>
     </div>
 
-    <!-- posts list -->
-    <div class="columns-1 flex lg:flex-row sm:flex-col h-full sm:h-96 sm:overflow-auto flex-row gap-4">s
-        <div class="flex-1 h-96 overflow-auto">
+    <div class="columns-1 flex h-full overflow-auto flex-row gap-4">
+        <div class="flex-1 h-full overflow-auto">
             <div class="max-w-sm w-full lg:max-w-full lg:flex my-2 shadow-sm relative"
                 *ngFor="let item of post_list| author: author_filter.value">
                 <div class="w-full bg-white rounded-lg  p-4 flex flex-col justify-between leading-normal">
@@ -45,13 +43,12 @@
                                 <path
                                     d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
                             </svg>
-                            posts
+                            Members only
                         </p>
                         <div class="text-gray-900 font-bold text-lg mb-2">{{item.title}}</div>
                         <p class="text-sm text-gray-700 line-clamp-3">{{item.body}}</p>
                     </div>
                     <div class="flex items-center">
-                        <!-- <img class="w-10 h-10 rounded-full mr-4" src="/img/jonathan.jpg" alt="Avatar of Jonathan Reinink"> -->
                         <div class="w-6 h-6 rounded-full mr-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                                 stroke="currentColor" className="w-6 h-6">
@@ -71,10 +68,96 @@
             </div>
         </div>
 
-        <!-- comments section -->
         <div class="flex-1 relative">
             <app-comments *ngIf="!new_post"></app-comments>
             <app-form-post *ngIf="new_post"></app-form-post>
         </div>
     </div>
+</div> -->
+
+
+
+<div class="container h-full">
+    <!-- search -->
+    <div class="w-full h-20 mb-2  mt-1">
+        <div class="w-3/6 relative">
+            <input type="text" id="filtro_autor"
+                class=" border border-teal-500 text-teal-900 text-sm rounded-lg block w-full p-2.5 focus:outline-none focus:ring focus:ring-teal-500 focus:border-teal-500 placeholder-teal-500"
+                placeholder="Search by author..." [formControl]="author_filter">
+            <button class="p-2 absolute right-0 bg-transparent text-sm text-teal-500 top-1">
+                <div class="w-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                        stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="w-full h-full mb-2 ">
+
+        <!-- posts section -->
+        <div class="flex gap-2 w-full h-full">
+            <div class="flex-1 h-5/6 overflow-auto p-2 relative">
+                <div class="flex justify-between sticky top-0 z-10">
+                    <div
+                        class="text-teal-50 text-md font-bold py-2 px-4 bg-amber-400 w-32 text-center rounded-full ml-2 shadow-md">
+                        {{post_list.length}} posts
+                    </div>
+                    <button class="p-2 bg-teal-700 text-white rounded-lg hover:bg-teal-500 hover:transition shadow-md"
+                    *ngIf="!new_post" (click)="new_post = !new_post">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                </button>
+                    
+                </div>
+                <div class="max-w-sm w-full lg:max-w-full lg:flex my-2 shadow-sm relative"
+                    *ngFor="let item of post_list| author: author_filter.value">
+                    <div class="w-full bg-white rounded-lg  p-4 flex flex-col justify-between leading-normal">
+                        <div class="mb-5">
+                            <p class="text-sm text-gray-600 flex items-center">
+                                <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20">
+                                    <path
+                                        d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
+                                </svg>
+                                Members only
+                            </p>
+                            <div class="text-gray-900 font-bold text-lg mb-2">{{item.title}}</div>
+                            <p class="text-sm text-gray-700 line-clamp-3">{{item.body}}</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 rounded-full mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round"
+                                        d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div class="text-sm">
+                                <p class="text-gray-900 leading-none">{{item.user.name}}</p>
+                            </div>
+                        </div>
+                        <button
+                            class="absolute bottom-4 right-4 flex flex-row justify-center items-center text-teal-900 text-sm bg-transparent border border-teal-600 p-2 rounded-lg"
+                            (click)="get_comments(item.comments.nodes)">comments
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- comments section -->
+            <div class="flex-1 h-5/6 bg-teal-100 rounded-lg overflow-auto p-2 relative">
+                <p class="text-teal-700 text-md font-bold py-2 px-4 sticky top-0 bg-teal-200 rounded-lg">comments</p>
+                <app-comments *ngIf="!new_post"></app-comments>
+                <app-form-post *ngIf="new_post"></app-form-post>
+            </div>
+        </div>
+    </div>
+
 </div>

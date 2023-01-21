@@ -1,3 +1,4 @@
+import { graphql_post } from "../posts/graphql-post.model";
 
 //datos del usuario
 export interface graphql_user {
@@ -8,6 +9,7 @@ export interface graphql_user {
     status: string;
     posts: {
         totalCount: number
+        nodes: graphql_post[]
     }
 }
 

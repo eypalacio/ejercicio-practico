@@ -17,7 +17,7 @@ export class CommentsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.post_comment_service.emisor.subscribe(result => {
+    this.post_comment_service.comments_emitter.subscribe(result => {
       this.comments_list = result;
     })
   }

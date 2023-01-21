@@ -11,6 +11,23 @@ query{
             email
             posts{
                 totalCount
+                nodes{
+                   id
+                   title
+                   body
+                   user{
+                    id
+                    name
+                   }
+                   comments{
+                    nodes{
+                        name
+                        body
+                        email
+                        id
+                    }
+                   } 
+                }
             }
         }
     }
