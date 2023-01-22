@@ -1,0 +1,35 @@
+<div class="w-full h-full overflow-auto">
+    <table class="table-fixed w-full">
+        <thead class="border-b sticky top-0 bg-transparent z-10">
+            <tr>
+                <th scope="col"
+                    class="w-20 bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left rounded-tl-lg"></th>
+                <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left">title</th>
+                <th scope="col" class="w-40 bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left">date</th>
+                <th scope="col"
+                    class="w-60 bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left rounded-tr-lg">user</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b" *ngFor="let item of todo_list">
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                        <input id="default-checkbox" type="checkbox" value=""
+                            class="w-4 h-4 text-white appearance-none bg-white border border-gray-300 rounded checked:bg-amber-400 checked:text-white">
+                    </div>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4">{{item.title}}</td>
+                <td class="w-40 text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap truncate">{{item.dueOn|
+                    date:'short'}}</td>
+                <td class="w-60 text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.user.name}}</td>
+            </tr>
+            <tr *ngIf="todo_list.length == 0">
+                <td colspan="4" rowspan="4">
+                    <div class="h-full w-full flex justify-center drop-shadow-lg">
+                        <img class="w-4/6 h-96 pt-8" src="assets/imgs/undraw_people.svg" alt="">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

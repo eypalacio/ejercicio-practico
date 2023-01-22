@@ -20,6 +20,8 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { FormPostComponent } from './components/form-post/form-post.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CommonModule } from '@angular/common';
+import { TodoComponent } from './components/todo/todo.component';
+import { FormTodoComponent } from './components/form-todo/form-todo.component';
 
 const auth = setContext((headers) => {
   return {
@@ -39,6 +41,8 @@ const auth = setContext((headers) => {
     CommentsComponent,
     FormPostComponent,
     MenuComponent,
+    TodoComponent,
+    FormTodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,24 +51,10 @@ const auth = setContext((headers) => {
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    GraphQLModule,
     HttpClientModule,
+    GraphQLModule,
   ],
-  providers: [
-    {
-      provide: APOLLO_OPTIONS,
-      useFactory(httpLink: HttpLink) {
-        const link = ApolloLink.from([auth, httpLink.create({
-          uri: 'https://gorest.co.in/public/v2/graphql'
-        })])
-        return {
-          cache: new InMemoryCache(),
-          link: link
-        }
-      },
-      deps: [HttpLink]
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

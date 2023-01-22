@@ -15,6 +15,7 @@ export class FormPostComponent implements OnInit {
     body: new FormControl('', Validators.required),
     userId: new FormControl('', Validators.required),
   })
+  
   constructor(
     private post_service: PostService,
     private post_comment_service: PostCommentsService,
