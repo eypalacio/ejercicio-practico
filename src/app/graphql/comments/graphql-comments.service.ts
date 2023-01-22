@@ -24,8 +24,8 @@ export class CommentsService {
      * 
      * @param id 
      */
-    delete_comments(id: number) {
-        this.apollo.mutate<graphql_comments_response>({
+    delete_comments(id: number): Observable<any> {
+        return this.apollo.mutate<graphql_comments_response>({
             mutation: DELETE_COMMENT,
             variables: {
                 id: id,

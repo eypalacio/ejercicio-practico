@@ -15,7 +15,7 @@ query{
 
 
 const DELETE_COMMENT = gql`
-mutation deleteComment($id: number){
+mutation deleteComment($id: Int!){
     deleteComment(
         input: {
             id:$id

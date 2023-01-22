@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { PostService } from 'src/app/graphql/posts/graphql-post.service';
+import { PostCommentsService } from 'src/app/services/post-comments.service';
 
 @Component({
   selector: 'app-form-post',
@@ -14,7 +15,10 @@ export class FormPostComponent implements OnInit {
     body: new FormControl('', Validators.required),
     userId: new FormControl('', Validators.required),
   })
-  constructor(private post_service: PostService) { }
+  constructor(
+    private post_service: PostService,
+    private post_comment_service: PostCommentsService,
+    ) { }
 
   ngOnInit(): void {
 
@@ -22,8 +26,6 @@ export class FormPostComponent implements OnInit {
       console.log(result);
 
     })
-
-
   }
 
   create_post() {
@@ -33,8 +35,11 @@ export class FormPostComponent implements OnInit {
       this.form.get('userId')?.value)
       .subscribe(result => {
         console.log(result);
-
       })
+  }
+
+  cancel(){
+    this.post_comment_service.cancel_new_post();
   }
 
 }

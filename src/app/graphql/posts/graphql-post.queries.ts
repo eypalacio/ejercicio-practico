@@ -57,7 +57,7 @@ mutation createPost($title: String!, $body: String!, $userId: Int!){
 `
 
 const DELETE_POST = gql`
-mutation deletePost($id: number){
+mutation deletePost($id: Int!){
     deletePost(
         input: {
             id:$id

@@ -12,13 +12,19 @@ export class CommentsComponent implements OnInit {
   comments_list: any[] = [];
 
   constructor(
-    private comment_service: CommentsService,
-    private post_comment_service: PostCommentsService,
+    private comment_service: CommentsService, //Graphql
+    private post_comment_service: PostCommentsService, 
   ) { }
 
   ngOnInit(): void {
     this.post_comment_service.comments_emitter.subscribe(result => {
       this.comments_list = result;
+    })
+  }
+
+  delete_comment(id: number){
+    this.comment_service.delete_comments(id).subscribe(resul =>{
+      this.comments_list = this.comments_list.filter( e => e.id != id)
     })
   }
 }

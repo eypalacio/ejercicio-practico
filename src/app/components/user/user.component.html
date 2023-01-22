@@ -2,11 +2,13 @@
     <table class="table-fixed w-full">
         <thead class="border-b sticky top-0 bg-transparent z-10">
             <tr>
-                <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left rounded-tl-lg">name</th>
+                <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left rounded-tl-lg">
+                    name</th>
                 <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left">email</th>
                 <th scope="col" class="bg-teal-600 text-sm font-medium text-white px-6 py-4 text-left">gender</th>
                 <th scope="col" class="bg-teal-600 text-sm w-24 font-medium text-white px-6 py-4 text-left">status</th>
-                <th scope="col" class="bg-teal-600 text-sm w-40 font-medium text-white px-6 py-4 text-left rounded-tr-lg">Posts</th>
+                <th scope="col"
+                    class="bg-teal-600 text-sm w-40 font-medium text-white px-6 py-4 text-left rounded-tr-lg">Posts</th>
             </tr>
         </thead>
         <tbody>
@@ -17,7 +19,7 @@
                 <td class="text-sm w-24 text-gray-900 font-light px-6 py-4 whitespace-nowrap">{{item.status}}</td>
                 <td class="text-sm w-40 text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center">
                     <button
-                        class="text-white w-fit p-2 flex justify-center items-center rounded-lg bg-teal-600 relative" (click)="ver_posts(item)">
+                        class="text-white w-fit p-2 flex justify-center items-center rounded-lg bg-teal-600 relative">
                         ver posts
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
                             stroke="currentColor" className="w-6 h-6">
@@ -30,8 +32,10 @@
                 </td>
             </tr>
             <tr *ngIf="user_list.length == 0">
-                <td colspan="5">
-                    <img class="w-full h-96 pt-8" src="assets/imgs/undraw_people.svg" alt="">
+                <td colspan="5" rowspan="5">
+                    <div class="h-full w-full flex justify-center drop-shadow-lg">
+                        <img class="w-4/6 h-96 pt-8" src="assets/imgs/undraw_people.svg" alt="">
+                    </div>  
                 </td>
             </tr>
         </tbody>

@@ -27,9 +27,5 @@ export class UserComponent implements OnInit {
     })
   }
 
-  ver_posts(item: graphql_user){
-    this.router.navigate(['/posts']);
-    this.posts_comments_service.send_post(item.posts.nodes)
-  }
 
 }

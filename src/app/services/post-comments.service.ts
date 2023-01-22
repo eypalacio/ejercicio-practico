@@ -9,7 +9,7 @@ import { graphql_post } from '../graphql/posts/graphql-post.model';
 export class PostCommentsService {
 
  comments_emitter = new EventEmitter<graphql_comments[]>();
- post_emitter= new EventEmitter<graphql_post[]>();
+ cancel_post_emitter = new EventEmitter<string>();
 
   constructor() { }
 
@@ -18,8 +18,9 @@ export class PostCommentsService {
     this.comments_emitter.emit(comments);
   }
 
-  // send user posts to posts.component
-  send_post(post: graphql_post[]){
-    this.post_emitter.emit(post);
+  //cancel new post
+  cancel_new_post(){
+    this.cancel_post_emitter.emit('cancel');
   }
+
 }

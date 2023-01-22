@@ -61,7 +61,7 @@ export class PostService {
      * @param id 
      * @returns 
      */
-    del_post(id: number){
+    delete_post(id: number): Observable<any>{
         return this.apollo.mutate<graphql_post>({
             mutation: DELETE_POST,
             variables: {
