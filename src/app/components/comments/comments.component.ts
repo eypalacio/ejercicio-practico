@@ -7,7 +7,7 @@ import { PostCommentsService } from 'src/app/services/post-comments.service';
   selector: 'app-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss'],
-  animations: [open_close, list_animation]
+  animations: [open_close]
 })
 export class CommentsComponent implements OnInit {
 
