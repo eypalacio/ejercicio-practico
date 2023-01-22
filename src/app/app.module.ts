@@ -8,9 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http'
-import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular'
-import { HttpLink } from 'apollo-angular/http'
-import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { GraphQLModule } from './graphql.module'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { PostsComponent } from './components/posts/posts.component';
@@ -19,17 +16,12 @@ import { UserComponent } from './components/user/user.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { FormPostComponent } from './components/form-post/form-post.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TodoComponent } from './components/todo/todo.component';
 import { FormTodoComponent } from './components/form-todo/form-todo.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
-const auth = setContext((headers) => {
-  return {
-    headers: {
-      Authorization: `Bearer a923887312d1c205ad2753cd342167f6c11bf664288f24b07e9414735fb12908`
-    }
-  }
-})
 
 @NgModule({
   declarations: [
@@ -53,8 +45,16 @@ const auth = setContext((headers) => {
     ReactiveFormsModule,
     HttpClientModule,
     GraphQLModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

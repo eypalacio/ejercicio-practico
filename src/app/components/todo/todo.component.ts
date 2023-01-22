@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { list_animation, open_close } from 'src/app/animation';
 import { graphql_todo } from 'src/app/graphql/todos/graphpql-todo.model';
 import { TodoService } from 'src/app/graphql/todos/graphql-todo.service';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss']
+  styleUrls: ['./todo.component.scss'],
+  animations: [open_close, list_animation]
 })
 export class TodoComponent implements OnInit {
 
@@ -33,6 +35,7 @@ export class TodoComponent implements OnInit {
   delete_todo(id: number) {
     this.todo_service.delete_todo(id).subscribe(result => {
       this.todo_list = this.todo_list.filter(e => e.id != id);
+      this.load_todos();
     })
   }
 

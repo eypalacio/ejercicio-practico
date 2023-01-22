@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { list_animation, open_close } from 'src/app/animation';
 import { graphql_user } from 'src/app/graphql/users/graphql-user.model';
 import { UserService } from 'src/app/graphql/users/graphql-user.service';
-import { PostCommentsService } from 'src/app/services/post-comments.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+  animations: [open_close, list_animation]
 })
 export class UserComponent implements OnInit {
 
-  user_list: any[] = []
+  user_list: graphql_user[] = []
 
   constructor(
     private user_service: UserService, //Graphql
-    private posts_comments_service: PostCommentsService,
-    private router: Router,
   ) { }
 
   ngOnInit(): void {

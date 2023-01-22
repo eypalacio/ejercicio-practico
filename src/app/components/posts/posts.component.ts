@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { subscribe } from 'graphql';
+import { list_animation, open_close } from 'src/app/animation';
 import { graphql_comments } from 'src/app/graphql/comments/graphql-comment.model';
-import { CommentsService } from 'src/app/graphql/comments/graphql-comments.service';
-import { graphql_post } from 'src/app/graphql/posts/graphql-post.model';
 import { PostService } from 'src/app/graphql/posts/graphql-post.service';
 import { PostCommentsService } from 'src/app/services/post-comments.service';
 
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  styleUrls: ['./posts.component.scss'],
+  animations: [open_close,list_animation]
 })
 export class PostsComponent implements OnInit {
 
@@ -26,6 +25,9 @@ export class PostsComponent implements OnInit {
   ngOnInit(): void {
     this.load_posts();
     this.post_comment_service.cancel_post_emitter.subscribe(result=>{
+      if(result.length>0){
+        this.load_posts();
+      }
       this.new_post = !this.new_post;
     })
   }

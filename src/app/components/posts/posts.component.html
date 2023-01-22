@@ -22,7 +22,7 @@
 
         <!-- posts section -->
         <div class="flex gap-2 w-full h-full">
-            <div class="flex-1 h-5/6 overflow-auto p-2 relative">
+            <div class="flex-1 h-5/6 overflow-auto p-2 relative" [@list_animation]="post_list.length">
                 <div class="flex justify-between sticky top-0 z-10">
                     <div
                         class="text-teal-50 text-md font-bold py-2 px-4 bg-amber-400 w-32 text-center rounded-full ml-2 shadow-md">
@@ -60,7 +60,7 @@
 
                         <!-- add button -->
                         <button
-                            class="flex flex-row w-fit justify-center items-center text-white text-sm bg-teal-600 p-2 rounded-lg shadow-lg"
+                            class="flex flex-row w-fit justify-center items-center text-white text-sm bg-teal-600 p-2 rounded-lg shadow-lg hover:bg-teal-400 transition-all duration-500"
                             (click)="get_comments(item.comments.nodes)">comments
                         </button>
 
@@ -76,7 +76,7 @@
                 </div>
 
                 <!-- post list empty -->
-                <div class="w-full h-5/6 flex justify-center items-center" *ngIf="post_list.length == 0">
+                <div class="w-full h-5/6 flex justify-center items-center" *ngIf="post_list.length == 0" [@open_close]="':open'">
                     <img class="object-contain w-96 mt-12" src="assets/imgs/undraw_post.svg" alt="">
                 </div>
             </div>

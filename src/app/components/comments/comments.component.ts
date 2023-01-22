@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { list_animation, open_close } from 'src/app/animation';
 import { CommentsService } from 'src/app/graphql/comments/graphql-comments.service';
 import { PostCommentsService } from 'src/app/services/post-comments.service';
 
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss']
+  styleUrls: ['./comments.component.scss'],
+  animations: [open_close, list_animation]
 })
 export class CommentsComponent implements OnInit {
 

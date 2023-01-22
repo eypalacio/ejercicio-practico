@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { open_close } from 'src/app/animation';
 import { graphql_todo } from 'src/app/graphql/todos/graphpql-todo.model';
 import { TodoService } from 'src/app/graphql/todos/graphql-todo.service';
 import { graphql_user } from 'src/app/graphql/users/graphql-user.model';
@@ -8,7 +9,8 @@ import { UserService } from 'src/app/graphql/users/graphql-user.service';
 @Component({
   selector: 'app-form-todo',
   templateUrl: './form-todo.component.html',
-  styleUrls: ['./form-todo.component.scss']
+  styleUrls: ['./form-todo.component.scss'],
+  animations: [open_close]
 })
 export class FormTodoComponent implements OnInit {
 

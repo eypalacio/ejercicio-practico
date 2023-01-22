@@ -19,8 +19,8 @@ export class PostCommentsService {
   }
 
   //cancel new post
-  cancel_new_post(){
-    this.cancel_post_emitter.emit('cancel');
+  cancel_new_post(action: string){
+    this.cancel_post_emitter.emit(action);
   }
 
 }
