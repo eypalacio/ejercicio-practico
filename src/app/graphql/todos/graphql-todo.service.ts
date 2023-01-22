@@ -28,13 +28,13 @@ export class TodoService {
      * @param userId 
      * @returns 
      */
-    create_todo(title: string, dueOn: Date, userId: number, status: string): Observable<any> {
+    create_todo(title: string, dueOn: Date, userId: string, status: string): Observable<any> {
         return this.apollo.mutate<graphql_todo>({
             mutation: CREATE_TODO,
             variables: {
-                title: title,
-                dueOn: dueOn,
-                userId: userId,
+                title: title.toString(),
+                dueOn: dueOn.toString(),
+                userId: parseInt(userId),
                 status: status,
             }
         }).pipe(map((m) => {
@@ -52,14 +52,12 @@ export class TodoService {
      * @param userId 
      * @returns 
      */
-    update_todo(title: string, status: string, dueOn: Date, userId: number): Observable<any> {
+    update_todo(id: number, status: string): Observable<any> {
         return this.apollo.mutate<graphql_todo>({
             mutation: UPDATE_TODO,
             variables: {
-                title: title,
+                id: id,
                 status: status,
-                dueOn: dueOn,
-                userId: userId,
             }
         }).pipe(map((m) => {
             console.log(m);

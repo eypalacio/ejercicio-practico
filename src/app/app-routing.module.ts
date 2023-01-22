@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'posts', component: PostsComponent },
   { path: 'users', component: UserComponent },
   { path: 'todos', component: TodoComponent },
-  { path: 'form', component:  FormTodoComponent},
+  { path: 'newtask', component:  FormTodoComponent},
 ];
 
 @NgModule({

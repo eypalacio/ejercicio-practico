@@ -18,13 +18,13 @@ query{
 `
 
 const CREATE_TODO = gql`
-mutation createTodo($title: String!, $status: String!, $dueOn: ISO8601DateTime!, $userId: Int!){
+mutation createTodo($title: String!, $dueOn: ISO8601DateTime!, $userId: Int!, $status: String!){
     createTodo(
         input: {
             title: $title
-            status: $status
             dueOn: $dueOn
             userId: $userId
+            status: $status
         }
     ){
         todo {
