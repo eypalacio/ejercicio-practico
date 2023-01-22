@@ -14,6 +14,7 @@ export class TodoComponent implements OnInit {
 
   todo_list: graphql_todo[] = []
   show_form: boolean = false;
+  
   constructor(private todo_service: TodoService) { }
 
   ngOnInit(): void {
