@@ -1,0 +1,97 @@
+{
+  "configVersion": 1,
+  "timestamp": 1674594409976,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.c8733afa60fc3dd7.js",
+        "/manifest.webmanifest",
+        "/polyfills.9cc44dc62324e349.js",
+        "/runtime.2d2afacbeb0108c8.js",
+        "/styles.4b052f5ca326ce57.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/fonts/varela-round.regular.ttf.otf",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/imgs/undraw_comments.svg",
+        "/assets/imgs/undraw_no_data.svg",
+        "/assets/imgs/undraw_people.svg",
+        "/assets/imgs/undraw_post.svg",
+        "/assets/imgs/undraw_things.svg",
+        "/assets/imgs/undraw_todo.svg",
+        "/varela-round.regular.ttf.ad6d5858ffa9754e.otf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/fonts/varela-round.regular.ttf.otf": "1b37aa89d918bc1c81945712601bd4a842b035ca",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/imgs/undraw_comments.svg": "60029916e0709b15a1040d07f9c6c1126eb638c2",
+    "/assets/imgs/undraw_no_data.svg": "6b20b8f6ca0db6a585590a2c71aa82a7fa1d7672",
+    "/assets/imgs/undraw_people.svg": "b18c068388c95c01134de22f4fe1fe80f50f68f3",
+    "/assets/imgs/undraw_post.svg": "5c8fe4f0211786f5756a9bc17a30d756c8882c77",
+    "/assets/imgs/undraw_things.svg": "21fde0bda49406f847eb5af8552ab4acbbc3a5d1",
+    "/assets/imgs/undraw_todo.svg": "2c2ab5353d96e327c7fb3e9d1c9ace9b448e1e9f",
+    "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/index.html": "3053dc611776a7d96a3776dbed7b5d975bbd4231",
+    "/main.c8733afa60fc3dd7.js": "b03e600966b645ce48b443117b6061717bdf92e3",
+    "/manifest.webmanifest": "08f40597feba738efccbac65bca55b85409aa8a8",
+    "/polyfills.9cc44dc62324e349.js": "461a9230904c03b4139e465a28a9d7c0676e1e11",
+    "/runtime.2d2afacbeb0108c8.js": "c8f3e65f626d56ba04f6f167f46e112b9cd5fbeb",
+    "/styles.4b052f5ca326ce57.css": "496d5b8917cce59a8d6412701963dacb7053ef79",
+    "/varela-round.regular.ttf.ad6d5858ffa9754e.otf": "1b37aa89d918bc1c81945712601bd4a842b035ca"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
