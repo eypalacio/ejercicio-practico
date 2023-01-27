@@ -1,0 +1,44 @@
+<div class="w-full h-fit flex justify-center" [@open_close]="':open'">
+    <form class="w-full max-w-lg " [formGroup]="form">
+        <label class="block uppercase tracking-wide text-teal-600 text-xs font-bold mb-2" for="grid-first-name">
+            new task
+        </label>
+        <div class="flex flex-wrap -mx-3 mb-2">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                    title
+                </label>
+                <input
+                    class="appearance-none block w-full bg-teal-50 text-gray-700 border border-teal-500 placeholder-opacity-25 placeholder-teal-700 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                    id="grid-first-name" type="text" name="title" placeholder="insert the title of todo"
+                    formControlName="title">
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    date
+                </label>
+                <input
+                    class="appearance-none block w-full bg-teal-50 text-gray-700 border border-teal-500 placeholder-opacity-25 placeholder-teal-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-last-name" type="date" placeholder="" name="date" formControlName="dueOn">
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                    user
+                </label>
+                <select name="user" id="" formControlName="userId" class="truncate block w-full bg-teal-50 text-gray-700 border border-teal-500 placeholder-opacity-25 placeholder-teal-700 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <option *ngFor="let item of user_list" [value]="item.id">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="flex justify-end">
+            <button
+                class="p-2 rounded-md shadow-md bg-teal-700 text-white text-sm hover:bg-teal-400 hover:transition-all transform active:scale-75"
+                (click)="create_todo()" >Done</button>
+            <button class="p-2 ml-2 rounded-md shadow-md bg-zinc-700 text-white text-sm hover:bg-teal-400
+                hover:transition-all transform active:scale-75" (click)="task_emitter.emit()">Cancel</button>
+        </div>
+
+    </form>
+</div>
