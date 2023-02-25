@@ -3,6 +3,11 @@
 Descripción:
 aplicación gestion Users, Post, Comments, Todos.
 
+Styles: tailwind
+
+API:GraphQL
+
+PWA
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
